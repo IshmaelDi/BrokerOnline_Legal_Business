@@ -64,7 +64,7 @@ public class HomePage extends PageObject {
     @Step("Capture Registration Number") // 2013/010108/23
     public void RegistrationNumber(){
 
-     //   $(By.xpath(RegistrstionNumberXpath)).sendKeys("2013/010108/23");
+     $(By.xpath(RegistrationNumberXpath)).sendKeys("2013/010108/23");
     }
     @Step("Capture Numnber of Employees")
     public void NUMBEROFEMPLOYEES(){
@@ -81,6 +81,7 @@ public class HomePage extends PageObject {
     @Step("Select Annual Turn Over")
     public void AnnualTurnOver(){
         WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
+        String AnnualTurnOver = new String();
         selectFromDropdown(ATO, AnnualTurnOver);
     }
     @Step("Capture Physical Address Line 1")
