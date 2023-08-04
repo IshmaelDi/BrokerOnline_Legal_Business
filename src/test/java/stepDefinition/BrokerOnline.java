@@ -47,7 +47,7 @@ public class BrokerOnline extends PageObjects {
     }
 
     @When("User enters Company Name {string}")
-    public void user_enters_company_name(String Mokoni) {
+    public void user_enters_company_name(String EnterCompanyName) {
 
         homePage.EnterCompanyName();
     }
@@ -67,7 +67,8 @@ public class BrokerOnline extends PageObjects {
 
     @When("User enter Mobile Number {string}")
     public void user_enter_mobile_number(String MOBILENUMBER) {
-        homePage.MOBILENUMBER();
+
+       homePage.MOBILENUMBER();
     }
 
     @When("User enter Work Number {string}")
@@ -76,13 +77,14 @@ public class BrokerOnline extends PageObjects {
     }
 
     @When("User enter Annual Turnover {string}")
-    public void user_enter_annual_turnover(String Lessthan2000000) {
-        homePage.AnnualTurnOver(Lessthan2000000);
+    public void user_enter_annual_turnover(String AnnualTurnOver) {
+        homePage.AnnualTurnOver();
     }
 
     @When("User enter PAL1 {string}")
     public void user_enter_pal1(String PhysicalAddressLine1) {
-        homePage.PhysicalAddressLine1();
+
+       homePage.PhysicalAddressLine1();
     }
 
     @When("User enter PAL2 {string}")
@@ -96,12 +98,12 @@ public class BrokerOnline extends PageObjects {
     }
 
     @When("User enter PostalAL2 {string}")
-    public void user_enter_postal_al2(String string) {
+    public void user_enter_postal_al2(String PostalAddressLine2) {
         homePage.PostalAddressLine2();
     }
 
     @When("User enter PostalAC {string}")
-    public void user_enter_postal_ac(String string) {
+    public void user_enter_postal_ac(String PostalAddressCode) {
         homePage.PostalAddressCode();
 
     }

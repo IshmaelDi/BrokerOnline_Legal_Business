@@ -1,22 +1,5 @@
 Feature: Broker Online - Legal Business Plan Capturing Process.
   Scenario Outline: Access Broker Online
-    Given
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Given User open Broker Online web browser, capture access code '<0132>' and clicks confirm button.
     When User captures Broker Code '<b1234>' and Password '<12345>'
     And User should be able to click login button and navigate to Online Capture
@@ -29,9 +12,6 @@ Feature: Broker Online - Legal Business Plan Capturing Process.
     And User enter Mobile Number '<0728712953>'
     And User enter Work Number '<0128584100>'
     And User enter Annual Turnover '<Less than 2,000,000>'
-
-
-
     And User enter PAL1 '<982 Block M>'
     And User enter PAL2 '<992 Block M>'
     And User enter PostaAL1 '<Soshanguve>'

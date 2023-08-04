@@ -79,7 +79,7 @@ public class HomePage extends PageObject {
         $(By.xpath(MobileNumberXpath)).sendKeys("MOBILENUMBER");
     }
     @Step("Select Annual Turn Over")
-    public void AnnualTurnOver(String AnnualTurnOver){
+    public void AnnualTurnOver(){
         WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
         selectFromDropdown(ATO, AnnualTurnOver);
     }
