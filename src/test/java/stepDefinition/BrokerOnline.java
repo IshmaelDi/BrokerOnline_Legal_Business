@@ -65,11 +65,11 @@ public class BrokerOnline extends PageObjects {
         homePage.MOBILENUMBER();
     }
     @When("User enter Work Number {string}")
-    public void user_enter_work_number(String string) {
+    public void user_enter_work_number(String WORKNUMBER) {
         homePage.WORKNUMBER();
     }
     @When("User enter Annual Turnover {string}")
-    public void user_enter_annual_turnover(String string) {
+    public void user_enter_annual_turnover(String AnnualTurnOver) {
         homePage.AnnualTurnOver();
     }
     @When("User enter PAL1 {string}")
@@ -77,7 +77,7 @@ public class BrokerOnline extends PageObjects {
         homePage.PostalAddressLine1();
     }
     @When("User enter PAL2 {string}")
-    public void user_enter_pal2(String string) {
+    public void user_enter_pal2(String PostalAddressLine2) {
         homePage.PostalAddressLine2();
     }
     @When("User enter PostaAL1 {string}")
