@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"pretty"},
         features = "src/resources/features/underWriting.feature",
         glue = "stepsDefinition",
-        dryRun = false )
+        dryRun = true )
 public class underWritingRunner {
 }
