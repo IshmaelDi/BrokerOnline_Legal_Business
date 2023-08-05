@@ -1,4 +1,4 @@
-package stepDefinition.CloseCorporation;
+package stepDefinition.CloseCorporationCC;
 
 
 import PageObjects.CloseCorporationCC.LoginPage;

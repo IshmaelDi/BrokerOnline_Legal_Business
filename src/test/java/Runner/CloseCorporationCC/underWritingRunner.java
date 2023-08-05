@@ -1,4 +1,4 @@
-package Runner.CloseCorporation;
+package Runner.CloseCorporationCC;
 
 
 import io.cucumber.junit.CucumberOptions;

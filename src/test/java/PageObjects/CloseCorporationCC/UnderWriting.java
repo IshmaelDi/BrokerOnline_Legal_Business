@@ -3,6 +3,7 @@ package PageObjects.CloseCorporationCC;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -54,11 +55,30 @@ public class UnderWriting extends PageObject {
     //      // enter text
     //      m.sendKeys("Selenium");
 
-    @Step("Enter text in Industry Specifics")
-    public void EnterTextInIndustrySpecific(String HiAutomation){
-        WebElement t = getDriver().findElement(By.xpath(IndustrySpecificsXpath));
+//    @Step("Enter text in Industry Specifics")
+//    public void EnterTextInIndustrySpecific(String HiAutomation){
+//        WebElement t = getDriver().findElement(By.xpath(IndustrySpecificsXpath));
+//
+//    }
+
+//    @Step("ENter txt in Industry Soecific")
+//        public void IndustrySpecific(String HiAuto) {
+//        $(By.xpath(IndustrySpecificsXpath)).clear();
+//        $(By.xpath(IndustrySpecificsXpath)).click();
+//        $(By.xpath(IndustrySpecificsXpath)).sendKeys("Direro");
+//    }
+
+
+    // Use Java Script
+
+    @Step("ENter txt in Industry Soecific")
+    public void IndustrySpecific(String HiAuto) {
+        ((JavascriptExecutor)getDriver()).executeScript("$('IndustrySpecificsXpath" + "67" + "').val('" + "HiAuto" + "');");
 
     }
+
+
+
 
 
 
