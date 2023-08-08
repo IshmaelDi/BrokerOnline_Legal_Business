@@ -7,24 +7,25 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.serenitybdd.core.pages.PageObjects;
+import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.WebDriver;
 
-public class BrokerOnline extends PageObjects {
-    LoginPage loginPage;
-    HomePage homePage;
+public class BrokerOnline  {
+   @Steps
+   LoginPage loginPage;
+   @Steps
+   HomePage homePage;
 
-   public BrokerOnline(WebDriver driver) {
-       super(driver);
-    }
 
-    @Given("User open Broker Online web browser, capture access code {String} and clicks confirm button.")
+
+    @Given("User open Broker Online web browser, capture access code  and clicks confirm button.")
     public void user_open_broker_online_web_browser_capture_access_code_and_clicks_confirm_button() throws InterruptedException {
         homePage.open();
         loginPage.enterAccessCode();
     }
-    @When("User captures Broker Code {String} and Password {String}")
-    public void user_captures_broker_code_and_password() throws InterruptedException {
-        loginPage.enterBrokerCodeAndPassword();
+    @When("User captures Broker Code {string} and Password {string}")
+    public void user_captures_broker_code_and_password(String o , String p) throws InterruptedException {
+        loginPage.enterBrokerCodeAndPassword(o,p);
     }
 
     @When("User should be able to click login button and navigate to Online Capture")
@@ -38,8 +39,8 @@ public class BrokerOnline extends PageObjects {
     }
 
     @When("User should be able to select Product from the drop list {string} and click on Continue Button to navigate to Business Details.")
-    public void user_should_be_able_to_select_product_from_the_drop_list_and_click_on_continue_button_to_navigate_to_business_details(String ClientèleLegalBusinessPlan) throws InterruptedException {
-        homePage.SelectProductFromDropList(ClientèleLegalBusinessPlan);
+    public void user_should_be_able_to_select_product_from_the_drop_list_and_click_on_continue_button_to_navigate_to_business_details(String ClienteleLegalBusinessPlan) throws InterruptedException {
+        homePage.SelectProductFromDropList(ClienteleLegalBusinessPlan);
         Thread.sleep(3000);
         homePage.ClickOnContinueButton();
         Thread.sleep(3000);
@@ -76,10 +77,10 @@ public class BrokerOnline extends PageObjects {
         homePage.WORKNUMBER();
     }
 
-    @When("User enter Annual Turnover {string}")
-    public void user_enter_annual_turnover(String AnnualTurnOver) {
-        homePage.AnnualTurnOver();
-    }
+//    @When("User enter Annual Turnover {string}")
+//    public void user_enter_annual_turnover(String AnnualTurnOver) {
+//        homePage.AnnualTurnOver();
+//    }
 
     @When("User enter PAL1 {string}")
     public void user_enter_pal1(String PhysicalAddressLine1) {

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
         features = "src/resources/features/BrokerOnline.feature",
-        glue = "stepsDefinition",
-        dryRun = true )
+        glue = "stepDefinition",
+        dryRun = false )
 public class BrokerOnlineRunner {
 }

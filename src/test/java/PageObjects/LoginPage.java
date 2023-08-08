@@ -28,9 +28,9 @@ public class LoginPage extends PageObject {
         $(By.xpath(accessCodeXpath)).sendKeys("0132");
         $(By.xpath(confirmButtonXpath)).click();
     }
-    public void enterBrokerCodeAndPassword() throws InterruptedException {
-        $(By.xpath(brokerCodeXpath)).sendKeys("b1234");
-        $(By.xpath(passwordXpath)).sendKeys("12345");
+    public void enterBrokerCodeAndPassword(String a,  String b) throws InterruptedException {
+        $(By.xpath(brokerCodeXpath)).sendKeys(a);
+        $(By.xpath(passwordXpath)).sendKeys(b);
     }
     public void clickOnLoginButton() throws InterruptedException {
         $(By.xpath(loginXpath)).click();
@@ -39,77 +39,5 @@ public class LoginPage extends PageObject {
     }
 
 
-
-
-//    public void main(String[] args) throws NoAlertPresentException, InterruptedException {
-//
-//        System.setProperty("webdriver.chrome.driver", "chromedriver_win32/chromedriver.exe");
-//        WebDriver driver = new ChromeDriver();
-//
-//        // Alert Message Handling
-//
-//        driver.get("https://cbc-uat.clientele.co.za/BrokerOnline/Login");
-//        driver.manage().window().maximize();
-//
-//
-//        driver.findElement(By.name("Access Code")).sendKeys("0132");
-//        driver.findElement(By.name("Confirm")).submit();
-////
-////
-////        // Switch to Alert
-////
-////        Alert alert = driver.switchTo().alert();
-////
-////        // Capturing alert message.
-////
-////        String alertMessage = driver.switchTo().alert().getText();
-////
-////        //Displaying alert message.
-////
-////        System.out.println(alertMessage);
-////        Thread.sleep(1000);
-////
-////        // Accepting alert
-////
-////        alert.accept();
-////
-////
-////    }
-////
-////
-//
-////        @Step("Enter Company Name {String}")
-////        public void EnterCompanyName() {
-////
-////            $(By.xpath(CompanyNameXpath)).sendKeys("Mokoni");
-//
-//
-//
-//
-//    }
-//
-//    public void enterAccessCode() throws InterruptedException {
-//        Thread.sleep(3000);
-//        getDriver().switchTo().defaultContent();
-//        Thread.sleep(3000);
-//        $(By.name("Access Code")).sendKeys("0132");
-//        $(By.name("Confirm")).click();
-//
-//    }
-//    public void enterBrokerCodeAndPassword() throws InterruptedException {
-//        Thread.sleep(3000);
-//        getDriver().switchTo().defaultContent();
-//        Thread.sleep(3000);
-//        $(By.name("UserName")).sendKeys("b1234");
-//        $(By.name("Password")).sendKeys("12345");
-//
-//
-//
-//    }
-//
-//    public void clickOnLoginButton() throws InterruptedException {
-//        $(By.name("Login")).click();
-//        Thread.sleep(3000);
-//    }
 }
 

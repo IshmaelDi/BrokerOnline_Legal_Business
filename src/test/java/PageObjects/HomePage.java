@@ -78,11 +78,11 @@ public class HomePage extends PageObject {
     public void MOBILENUMBER(){
         $(By.xpath(MobileNumberXpath)).sendKeys("MOBILENUMBER");
     }
-    @Step("Select Annual Turn Over")
-    public void AnnualTurnOver(){
-        WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
-        selectFromDropdown(ATO, AnnualTurnOver);
-    }
+//    @Step("Select Annual Turn Over")
+//    public void AnnualTurnOver(){
+//        WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
+//        selectFromDropdown(ATO, AnnualTurnOver);
+//    }
     @Step("Capture Physical Address Line 1")
     public void PhysicalAddressLine1() {
         $(By.xpath(PhysicalAddressLine1Xpath)).sendKeys("982 Block M");
