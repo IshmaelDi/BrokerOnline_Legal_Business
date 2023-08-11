@@ -31,30 +31,27 @@ public class HomePage extends PageObject {
     String PostalAddressCodeXpath = "//*[@id=\"b42-Input_PostalAddressCode\"]";
     String CHECKBOXXpath = "//*[@id=\"b42-AddressCopy\"]";
     String ContinueButtonXpath = "//*[@id=\"b42-BusinessDetailsForm\"]/div[12]/div/button";
-    private String enter;
-
-
-    // Online Capture - New Sale
 
     // Methods Implementations
-    // Login Page
     @Step("Click New Sale Button")
     public void ClickNewSaleButton(){
+
         $(By.xpath(NewSaleXpath)).click();
     }
     @Step("select Product {String} from drop list")
-    public void SelectProduct(String SelectProductFromDropList) {
+    public void SelectProductFromDropList(String ClientèleLegalBusinessPlan) {
         WebElement C = $(By.xpath(SelectProductXpath));
-        selectFromDropdown(C, SelectProductFromDropList);
+        selectFromDropdown(C, ClientèleLegalBusinessPlan);
     }
     @Step("Click on Continue Button")
     public void ClickOnContinueButton() {
+
         $(By.xpath(ClickOnContinueButtonXpath)).click();
     }
-    @Step("Enter Company Name {String}")
-    public void EnterCompanyName(String companyName){
-        $(By.xpath(CompanyNameXpath)).sendKeys(companyName);
+    @Step("Enter Company Name ")
+    public void EnterCompanyName() {
 
+        $(By.xpath(CompanyNameXpath)).sendKeys("EnterCompanyName");
     }
 
 
@@ -67,7 +64,7 @@ public class HomePage extends PageObject {
     @Step("Capture Registration Number") // 2013/010108/23
     public void RegistrationNumber(){
 
-       $(By.xpath(RegistrationNumberXpath)).sendKeys("RegistrationNumber");
+     //   $(By.xpath(RegistrstionNumberXpath)).sendKeys("2013/010108/23");
     }
     @Step("Capture Numnber of Employees")
     public void NUMBEROFEMPLOYEES(){
@@ -81,34 +78,34 @@ public class HomePage extends PageObject {
     public void MOBILENUMBER(){
         $(By.xpath(MobileNumberXpath)).sendKeys("MOBILENUMBER");
     }
-    @Step("Select Annual Turn Over")
-    public void AnnualTurnOver(String AnnualTurnOver ){
-        WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
-        selectFromDropdown(ATO, AnnualTurnOver);
-    }
+//    @Step("Select Annual Turn Over")
+//    public void AnnualTurnOver(){
+//        WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
+//        selectFromDropdown(ATO, AnnualTurnOver);
+//    }
     @Step("Capture Physical Address Line 1")
     public void PhysicalAddressLine1() {
-        $(By.xpath(PhysicalAddressLine1Xpath)).sendKeys("PhysicalAddressLine1");
+        $(By.xpath(PhysicalAddressLine1Xpath)).sendKeys("982 Block M");
     }
     @Step("Capture Physical Address Line 1")
     public void PhysicalAddressLine2() {
-        $(By.xpath(PhysicalAddressLine2Xpath)).sendKeys("PhysicalAddressLine2");
+        $(By.xpath(PhysicalAddressLine2Xpath)).sendKeys("982 Block M");
     }
     @Step("Capture Physical Address Code")
     public void PhysicalAddressCode() {
-        $(By.xpath(PhysicalAddressCodeXpath)).sendKeys("PhysicalAddressCode");
+        $(By.xpath(PhysicalAddressCodeXpath)).sendKeys("0152");
     }
     @Step("Capture Postal Address Code")
     public void PostalAddressCode(){
-        $(By.xpath(PostalAddressCodeXpath)).sendKeys("PostalAddressCode");
+        $(By.xpath(PostalAddressCodeXpath)).sendKeys("0152");
     }
     @Step("Capture Postal Address Line1")
     public void PostalAddressLine1(){
-        $(By.xpath(PostalAddressAddressLine1Xpath)).sendKeys("PostalAddressLine1");
+        $(By.xpath(PostalAddressAddressLine1Xpath)).sendKeys("0152");
     }
     @Step("Capture Postal Address Line2")
     public void PostalAddressLine2() {
-        $(By.xpath(PostalAddressAddressLine2Xpath)).sendKeys("PostalAddressLine2");
+        $(By.xpath(PostalAddressAddressLine2Xpath)).sendKeys("0152");
     }
     @Step("Click on check Box")
     public void CHECKBOX(){
@@ -120,9 +117,5 @@ public class HomePage extends PageObject {
     }
 
 
-    public void selectFromDropdown() {
-    }
 
-    public void CompanyName(String companyName) {
-    }
 }

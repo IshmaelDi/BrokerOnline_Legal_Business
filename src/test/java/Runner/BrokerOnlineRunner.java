@@ -9,8 +9,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"pretty"},
         features = "src/resources/features/BrokerOnline.feature",
         glue = "stepDefinition",
-        dryRun = false
-)
-public class
-BrokerOnlineRunner {
+        dryRun = true )
+public class BrokerOnlineRunner {
 }

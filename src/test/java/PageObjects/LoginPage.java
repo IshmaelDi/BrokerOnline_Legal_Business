@@ -19,30 +19,21 @@ public class LoginPage extends PageObject {
 
     // Login Credentials Elements.
     String brokerCodeXpath = "//*[@id=\"Input_UsernameVal\"]";
-    String passwordXpath = "//*[@id=\"Input_PasswordVal\"]";
+    String passwordXpath = "//*[@id=\"Input_UsernameVal\"]";
     String loginXpath = "//*[@id=\"LoginForm\"]/div[3]/button/div";
 
 
     // Methods Implementations
-    @Step("Enter Access Code")
-    public void enterAccessCode(String AccessCode ) throws InterruptedException {
-        Thread.sleep(3000);
-        getDriver().switchTo().defaultContent();
-        $(By.xpath(accessCodeXpath)).sendKeys(AccessCode);
+    public void enterAccessCode() throws InterruptedException {
+        $(By.xpath(accessCodeXpath)).sendKeys("0132");
         $(By.xpath(confirmButtonXpath)).click();
     }
-    @Step("Enter broker Code and Password")
     public void enterBrokerCodeAndPassword(String a,  String b) throws InterruptedException {
-        Thread.sleep(3000);
-        getDriver().switchTo().defaultContent();
         $(By.xpath(brokerCodeXpath)).sendKeys(a);
         $(By.xpath(passwordXpath)).sendKeys(b);
-        Thread.sleep(3000);
     }
-    @Step("Click On Login Button")
     public void clickOnLoginButton() throws InterruptedException {
         $(By.xpath(loginXpath)).click();
-        Thread.sleep(3000);
 
 
     }
