@@ -18,6 +18,7 @@ public class ContactPerson extends PageObject {
     String MobileNumberXpath = "//*[@id=\"b46-Input_Surname\"]";
     String JobPositionXpath = "//*[@id=\"b46-Input_JobPosition\"]";
     String PrimaryContactXpath = "//*[@id=\"b46-Input_IsPrimaryContact\"]";
+    String FinishLaterXpath = "//*[@id=\"b46-FinishLaterCheckBox\"]";
     String ContinueButtonXpath = "//*[@id=\"b46-ContactPersonForm\"]/div[8]/button";
 
 
@@ -29,13 +30,11 @@ public class ContactPerson extends PageObject {
         selectFromDropdown(t, Title);
     }
 
-//    @Step("Select Identity Type")
-//    //public void SelectIdentityType(IdentityType){
-//        WebElement it = $(By.xpath(IdentityTypeXpath));
-//        String IdentityType = new String();
-//        selectFromDropdown(it, IdentityType);
-//    }
-
+    @Step("Select IdentityType {String}")
+    public void SelectIdentityType(String IdentityType){
+        WebElement d = $(By.xpath(IdentityTypeXpath));
+        selectFromDropdown(d, IdentityType);
+    }
 
     @Step("Enter Identity Number {String}")
     public void EnterIdentityType(String IdentityType){
@@ -67,14 +66,15 @@ public class ContactPerson extends PageObject {
     @Step("Select Primary Contact {String}")
     public void SelectPrimaryContacts(String PrimaryContacts){
         WebElement p = $(By.xpath(PrimaryContactXpath));
+        selectFromDropdown(p, PrimaryContacts);
     }
+
+    //Validate Checkbox using isDisplayed() and click
 
     @Step("Click on Finish Later Checkbox")
     public void CheckBox(){
 
-        //Validate Checkbox using isDisplayed() and click
-
-        WebElement checkBoxElement = getDriver().findElement(By.cssSelector("label[for='hobbies-checkbox-1']"));
+        WebElement checkBoxElement = getDriver().findElement(By.xpath(FinishLaterXpath));
         boolean isDisplayed = checkBoxElement.isDisplayed();
 
 // performing click operation if element is displayed
@@ -84,14 +84,12 @@ public class ContactPerson extends PageObject {
 
     }
 
-
-
-
-
     @Step("Click on Continue Button")
     public void ClickOnContinueButton(){
         $(By.xpath(ContinueButtonXpath)).click();
     }
+
+
 
 
 }

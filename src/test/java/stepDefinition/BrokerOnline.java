@@ -2,24 +2,21 @@ package stepDefinition;
 
 
 import PageObjects.LoginPage;
-import PageObjects.HomePage;
-import io.cucumber.java.en.And;
+import PageObjects.BusinessDetails;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import net.serenitybdd.core.pages.PageObjects;
 import net.thucydides.core.annotations.Steps;
-import org.openqa.selenium.WebDriver;
 
 public class BrokerOnline {
     @Steps
     LoginPage loginPage;
     @Steps
-    HomePage homePage;
+    BusinessDetails businessDetails;
 
 
     @Given("User open Broker Online web browser, capture access code {string}  and clicks confirm button.")
     public void user_open_broker_online_web_browser_capture_access_code_and_clicks_confirm_button(String AccessCode) throws InterruptedException {
-        homePage.open();
+        businessDetails.open();
         Thread.sleep(3000);
         loginPage.enterAccessCode(AccessCode);
         //Thread.sleep(3000);
@@ -43,15 +40,15 @@ public class BrokerOnline {
 
     @When("User click on New Sale Button")
     public void user_click_on_new_sale_button() {
-        homePage.ClickNewSaleButton();
+        businessDetails.ClickNewSaleButton();
     }
 
     @When("User should be able to select Product from the drop list {string} and click on Continue Button to navigate to Business Details.")
     public void user_should_be_able_to_select_product_from_the_drop_list_and_click_on_continue_button_to_navigate_to_business_details(String ClienteleLegalBusinessPlan) throws InterruptedException {
 
-        homePage.SelectProduct(ClienteleLegalBusinessPlan);
+        businessDetails.SelectProduct(ClienteleLegalBusinessPlan);
         //Thread.sleep(3000);
-        homePage.ClickOnContinueButton();
+        businessDetails.ClickOnContinueButton();
         Thread.sleep(3000);
         System.out.println("User should be Able to navigate to Business Details");
     }
@@ -60,7 +57,7 @@ public class BrokerOnline {
     @When("User enters Company Name {string}")
     public void user_enters_company_name(String companyName) {
 
-        homePage.EnterCompanyName(companyName);
+        businessDetails.EnterCompanyName(companyName);
     }
 }
 
