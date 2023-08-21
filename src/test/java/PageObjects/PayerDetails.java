@@ -9,7 +9,7 @@ public class PayerDetails extends PageObject {
 
     // Payer Details Elements
 
-    String RegisteredBusinessXpath = "//*[@id=\"b50-SameAsRegBusiness\"]";
+    String RegisteredBusinessCheckboxXpath = "//*[@id=\"b50-SameAsRegBusiness\"]";
     String JobPositionXpath = "//*[@id=\"b50-Dropdown_JobPosition\"]";
     String CompanyNameXpath = "//*[@id=\"b50-NSandN4Payer\"]/div[3]/div/div[1]/span";
     String RegistrationNumberXpath = "//*[@id=\"b50-NSandN4Payer\"]/div[3]/div/div[2]/span";
@@ -27,6 +27,8 @@ public class PayerDetails extends PageObject {
     String POSVerifiedXpath = "//*[@id=\"b50-Dropdown_POS\"]";
     String IsSACitizenXpath = "//*[@id=\"b50-Checkbox1\"]";
     String DebiDayXpath = "//*[@id=\"b50-Dropdown_DebitDay2\"]";
+    String PworkTelephoneNumberXpath = "//*[@id=\"b50-Input_WorkTelephoneNumber\"]";
+    String ContinueBtnXpath = "//*[@id=\"b50-PayerForm\"]/div[2]/div/button[2]";
 
 
     // Payer Details Methods
@@ -75,7 +77,6 @@ public class PayerDetails extends PageObject {
         $(By.xpath(PworkTelephoneNumberXpath)).sendKeys(workNumber);
 
     }
-
     @Step("Enter Email address")
     public void enteremailAddress(String EmailAddress){
         $(By.xpath(emailXpath)).sendKeys(EmailAddress);
@@ -86,43 +87,35 @@ public class PayerDetails extends PageObject {
         $(By.xpath(BankAccountNumberXpath)).sendKeys(AccountNumber);
 
     }
-
     @Step("select title")
     public void selectTitle(String Title){
         WebElement PTitle = $(By.xpath(TitleXpath));
         selectFromDropdown(PTitle, Title);
-
     }
-
     @Step("select ID Type")
     public void selectIDType(String IDType){
         WebElement type = $(By.xpath(IdentityNumberXpath));
         selectFromDropdown(type, IDType);
     }
-
     @Step("select bank name")
     public void selectBankName(String bankName){
         WebElement bank = $(By.xpath(BankNameXpath));
         selectFromDropdown(bank, bankName);
-
     }
     @Step("select bank account type")
     public void selectBankType(String bankType){
         WebElement BankType = $(By.xpath(BankAccountTypeXpath));
         selectFromDropdown(BankType, bankType);
-
     }
     @Step("select point of sale verifier")
     public void selectPointOfSaleVerified(String PointofSaleVer){
         WebElement pos = $(By.xpath(POSVerifiedXpath));
         selectFromDropdown(pos, PointofSaleVer);
-
     }
     @Step("select debit day")
-    public void selectDebitday(String debitDay){
+    public void selectDebitDay(String debitDay){
         WebElement debitDy = $(By.xpath(DebiDayXpath));
         selectFromDropdown(debitDy, debitDay);
-
     }
     @Step("Is South African Citizen")
     public void IsSACitizen(){
@@ -134,10 +127,7 @@ public class PayerDetails extends PageObject {
             checkBoxElement.click();
         }
 
-
     }
-
-
     @Step("click continue button")
     public void clickContinue(){
         $(By.xpath(ContinueBtnXpath)).click();

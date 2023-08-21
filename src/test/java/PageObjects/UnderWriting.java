@@ -21,32 +21,32 @@ public class UnderWriting extends PageObject {
     // UnderWriting Methods
 
     @Step("Select Legal Matters {Sting} from drop list")
-    public void SelectLegalMatters(String SelectProductFromDropList) {
+    public void SelectLegalMatters(String LegalMatters) {
         WebElement LM = $(By.xpath(LegalMattersXpath));
-        selectFromDropdown(LM, SelectProductFromDropList);
+        selectFromDropdown(LM, LegalMatters);
     }
 
     @Step("Select Legal Entity {String} from drop list")
-    public void SelectLegalEntity(String SelectProductFromDropList) {
+    public void SelectLegalEntity(String LegalEntity) {
         WebElement LE = $(By.xpath(LegalEntityXpath));
-        selectFromDropdown(LE, SelectProductFromDropList);
+        selectFromDropdown(LE, LegalEntity);
     }
 
     @Step("Select Invoices {String} from drop list")
-    public void SelectInvoices(String SelectProductFromDropList) {
+    public void SelectInvoices(String Invoices) {
         WebElement I = $(By.xpath(InvoicesXpath));
-        selectFromDropdown(I, SelectProductFromDropList);
+        selectFromDropdown(I, Invoices);
     }
 
     @Step("Select Industry {String} from drop list")
-    public void SelectIndustry(String SelectProductFromDropList) {
+    public void SelectIndustry(String Industry) {
         WebElement IN = $(By.xpath(IndustryXpath));
-        selectFromDropdown(IN, SelectProductFromDropList);
+        selectFromDropdown(IN, Industry);
     }
 
     @Step("Enter Industry Specific {String}")
-    public void IndustrySpecifics(String TxtArea) {
-        $(By.xpath(TextAreaXpath)).sendKeys(TxtArea);
+    public void IndustrySpecifics(String IndustrySpecific) {
+        $(By.xpath(TextAreaXpath)).sendKeys(IndustrySpecific);
     }
 
     @Step("Click on Finish later Checkbox")
