@@ -1,3 +1,5 @@
+
+
 package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
@@ -31,6 +33,7 @@ public class BusinessDetails extends PageObject {
     String PostalAddressCodeXpath = "//*[@id=\"b42-Input_PostalAddressCode\"]";
     String CHECKBOXXpath = "//*[@id=\"b42-AddressCopy\"]";
     String ContinueButtonXpath = "//*[@id=\"b42-BusinessDetailsForm\"]/div[12]/div/button";
+    private String enter;
 
 
     // Online Capture - New Sale
@@ -55,6 +58,8 @@ public class BusinessDetails extends PageObject {
         $(By.xpath(CompanyNameXpath)).sendKeys(companyName);
 
     }
+
+
     //Business Details Methods
     @Step("select Business Type")
     public void SelectBusinessType(String SelectBusinessType) {
@@ -117,5 +122,10 @@ public class BusinessDetails extends PageObject {
     }
 
 
+    public void selectFromDropdown() {
+    }
 
+    public void CompanyName(String companyName) {
+    }
 }
+
