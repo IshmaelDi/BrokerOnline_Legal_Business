@@ -21,10 +21,20 @@ public class UnderWriting extends PageObject {
     // UnderWriting Methods
 
     @Step("Select Legal Matters {Sting} from drop list")
-    public void SelectLegalMatters(String LegalMatters) {
+    public void SelectLegalMatters(String value) {
         WebElement LM = $(By.xpath(LegalMattersXpath));
-        selectFromDropdown(LM, LegalMatters);
+        LM.click();
+        selectFromDropdown(LM, value);
+
     }
+
+
+//    @Step("Select Legal Matters {Sting} from drop list")
+//    public void SelectLegalMatters(String LegalMatters) {
+//        WebElement LM = $(By.xpath(LegalMattersXpath));
+//        sel
+//        selectFromDropdown(LM, LegalMatters);
+//    }
 
     @Step("Select Legal Entity {String} from drop list")
     public void SelectLegalEntity(String LegalEntity) {
@@ -62,8 +72,8 @@ public class UnderWriting extends PageObject {
 
     }
 
-    @Step("Click on Continue Button")
-    public void ContinueButton(){
+    @Step("Click on UnderWritingContinue Button")
+    public void UnderWritingContinueButton(){
         $(By.xpath(ContinueButtonXpath)).click();
     }
 
