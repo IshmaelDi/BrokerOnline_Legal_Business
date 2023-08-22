@@ -28,21 +28,16 @@ public class ContactPerson extends PageObject {
         WebElement t = $(By.xpath(TitleXpath));
         selectFromDropdown(t, Title);
     }
-
-//    @Step("Select Identity Type")
-//    //public void SelectIdentityType(IdentityType){
-//        WebElement it = $(By.xpath(IdentityTypeXpath));
-//        String IdentityType = new String();
-//        selectFromDropdown(it, IdentityType);
-//    }
-
-
+    @Step("Select Identity Type")
+    public void SelectIdentityType(String IdentityType) {
+        WebElement it = $(By.xpath(IdentityTypeXpath));
+        selectFromDropdown(it, IdentityType);
+    }
     @Step("Enter Identity Number {String}")
     public void EnterIdentityType(String IdentityType){
         $(By.xpath(IdentityNumberXpath)).sendKeys(IdentityType);
 
     }
-
     @Step("Enter Name {String}")
     public void EnterName(String Name){
         $(By.xpath(NameXpath)).sendKeys(Name);
@@ -68,7 +63,6 @@ public class ContactPerson extends PageObject {
     public void SelectPrimaryContacts(String PrimaryContacts){
         WebElement p = $(By.xpath(PrimaryContactXpath));
     }
-
     @Step("Click on Finish Later Checkbox")
     public void CheckBox(){
 
@@ -83,10 +77,6 @@ public class ContactPerson extends PageObject {
         }
 
     }
-
-
-
-
 
     @Step("Click on Continue Button")
     public void ClickOnContinueButton(){

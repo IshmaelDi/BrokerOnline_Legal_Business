@@ -16,6 +16,7 @@ public class BusinessDetails extends PageObject {
     String NewSaleXpath = "//*[@id=\"b3-NewSaleButton\"]";
     String SelectProductXpath = "//*[@id=\"b3-BrokerProducts\"]";
     String ClickOnContinueButtonXpath = "//button[@class=\"btn  btn-primary OSFillParent\"]";
+    //
 
     // Business Details Elements - Mandatory Text Fields.
     String CompanyNameXpath = "//*[@id=\"b42-Input_CompanyName\"]";
@@ -31,7 +32,7 @@ public class BusinessDetails extends PageObject {
     String PostalAddressAddressLine1Xpath = "//*[@id=\"b42-Input_PostalAddressLine1\"]";
     String PostalAddressAddressLine2Xpath = "//*[@id=\"b42-Input_PostalAddressLine2\"]";
     String PostalAddressCodeXpath = "//*[@id=\"b42-Input_PostalAddressCode\"]";
-    String CHECKBOXXpath = "//*[@id=\"b42-AddressCopy\"]";
+    String FinishLaterCHECKBOXXpath = "//*[@id=\"b42-AddressCopy\"]";
     String ContinueButtonXpath = "//*[@id=\"b42-BusinessDetailsForm\"]/div[12]/div/button";
     private String enter;
 
@@ -70,57 +71,58 @@ public class BusinessDetails extends PageObject {
         selectFromDropdown(Cl, SelectBusinessType);
     }
     @Step("Capture Registration Number") // 2013/010108/23
-    public void RegistrationNumber(){
+    public void RegistrationNumber(String RegistrationNumber){
 
-       $(By.xpath(RegistrationNumberXpath)).sendKeys("RegistrationNumber");
+       $(By.xpath(RegistrationNumberXpath)).sendKeys(RegistrationNumber);
     }
     @Step("Capture Numnber of Employees")
-    public void NUMBEROFEMPLOYEES(){
-        $(By.xpath(NumberOfEmployeesXpath)).sendKeys("NUMBEROFEMPLOYEES");
+    public void NUMBEROFEMPLOYEES(String NUMBEROFEMPLOYEES){
+        $(By.xpath(NumberOfEmployeesXpath)).sendKeys(NUMBEROFEMPLOYEES);
     }
     @Step("capture WORK NUMBER")
-    public void WORKNUMBER() {
-        $(By.xpath(WORKNumberXpath)).sendKeys("WORKNUMBER");
+    public void WORKNUMBER(String WORKNUMBER) {
+        $(By.xpath(WORKNumberXpath)).sendKeys(WORKNUMBER);
     }
     @Step("capture MOBILE NUMBER")
-    public void MOBILENUMBER(){
-        $(By.xpath(MobileNumberXpath)).sendKeys("MOBILENUMBER");
+    public void MOBILENUMBER(String MOBILENUMBER){
+        $(By.xpath(MobileNumberXpath)).sendKeys(MOBILENUMBER);
     }
     @Step("Select Annual Turn Over")
-    public void AnnualTurnOver(String AnnualTurnOver ){
+    public void AnnualTurnOver(String AnnualTurnOver){
         WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
+
         selectFromDropdown(ATO, AnnualTurnOver);
     }
     @Step("Capture Physical Address Line 1")
-    public void PhysicalAddressLine1() {
-        $(By.xpath(PhysicalAddressLine1Xpath)).sendKeys("PhysicalAddressLine1");
+    public void PhysicalAddressLine1(String PhysicalAddressLine1) {
+        $(By.xpath(PhysicalAddressLine1Xpath)).sendKeys(PhysicalAddressLine1);
     }
     @Step("Capture Physical Address Line 1")
-    public void PhysicalAddressLine2() {
-        $(By.xpath(PhysicalAddressLine2Xpath)).sendKeys("PhysicalAddressLine2");
+    public void PhysicalAddressLine2(String physicalAddressLine2) {
+        $(By.xpath(PhysicalAddressLine2Xpath)).sendKeys(physicalAddressLine2);
     }
     @Step("Capture Physical Address Code")
-    public void PhysicalAddressCode() {
-        $(By.xpath(PhysicalAddressCodeXpath)).sendKeys("PhysicalAddressCode");
+    public void PhysicalAddressCode(String physicalAddressCode) {
+        $(By.xpath(PhysicalAddressCodeXpath)).sendKeys(physicalAddressCode);
     }
     @Step("Capture Postal Address Code")
-    public void PostalAddressCode(){
-        $(By.xpath(PostalAddressCodeXpath)).sendKeys("PostalAddressCode");
+    public void PostalAddressCode(String postalAddressCode){
+        $(By.xpath(PostalAddressCodeXpath)).sendKeys(postalAddressCode);
     }
     @Step("Capture Postal Address Line1")
-    public void PostalAddressLine1(){
-        $(By.xpath(PostalAddressAddressLine1Xpath)).sendKeys("PostalAddressLine1");
+    public void PostalAddressLine1(String postalAddressLine1){
+        $(By.xpath(PostalAddressAddressLine1Xpath)).sendKeys(postalAddressLine1);
     }
     @Step("Capture Postal Address Line2")
-    public void PostalAddressLine2() {
-        $(By.xpath(PostalAddressAddressLine2Xpath)).sendKeys("PostalAddressLine2");
+    public void PostalAddressLine2(String postalAddressLine2) {
+        $(By.xpath(PostalAddressAddressLine2Xpath)).sendKeys(postalAddressLine2);
     }
     @Step("Click on check Box")
-    public void CHECKBOX(){
-        $(By.xpath(CHECKBOXXpath)).click();
+    public void FinishLaterCHECKBOX(){
+        $(By.xpath(FinishLaterCHECKBOXXpath)).click();
     }
     @Step("Click on Continue Button")
-    public void ContinueButton() {
+    public void BusinessDetailsContinueButton() {
         $(By.xpath(ContinueButtonXpath)).click();
     }
 
