@@ -12,9 +12,18 @@ public class BrokerOnline_BusinessDetails {
     @Steps
     BusinessDetails businessDetails;
 
+
+//    @Given("User log on to Legal Business Plan and Capture AccessCode {string} and Capture {string}, {string} Login Details")
+//    public void user_log_on_to_legal_business_plan_and_capture_access_code_and_capture_login_details(String string, String string2, String string3) {
+//        loginPage.open();
+//    }
+
+
     @Given("User log on to Legal Business Plan and Capture AccessCode {string} and Capture {string}, {string} Login Details")
     public void user_log_on_to_legal_business_plan_and_capture_access_code_and_capture_login_details(String AccessCode, String BrokerCode, String Password) throws InterruptedException {
-        businessDetails.open();
+
+        loginPage.OpenWeb();
+  //      businessDetails.open();
         Thread.sleep(3000);
         loginPage.enterAccessCode(AccessCode);
         Thread.sleep(3000);
@@ -24,10 +33,11 @@ public class BrokerOnline_BusinessDetails {
     }
 
     @Given("User click on New Sale Button and Select the Product {string} and click Continue Button")
-    public void user_click_on_new_sale_button_and_select_the_product_and_click_continue_button(String ClienteleLegalBusinessPlan) throws InterruptedException {
+    public void user_log_on_to_legal_business_plan_and_capture_access_code_and_capture_login_details(String ClienteleLegalBusinessPlan) throws InterruptedException {
         Thread.sleep(3000);
         businessDetails.ClickNewSaleButton();
         businessDetails.SelectProduct(ClienteleLegalBusinessPlan);
+        businessDetails.ClickOnContinueButton();
         Thread.sleep(3000);
     }
 
