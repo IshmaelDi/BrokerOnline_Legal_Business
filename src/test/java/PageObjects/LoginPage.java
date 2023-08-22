@@ -22,6 +22,13 @@ public class LoginPage extends PageObject {
     String passwordXpath = "//*[@id=\"Input_PasswordVal\"]";
     String loginXpath = "//*[@id=\"LoginForm\"]/div[3]/button/div";
 
+    String OpenWebsite = "https://cbc-uat.clientele.co.za/BrokerOnline/Login";
+
+
+    public void OpenWeb(){
+        getDriver().get(OpenWebsite);
+    }
+
 
     // Methods Implementations
     @Step("Enter Access Code")

@@ -15,7 +15,7 @@ public class BusinessDetails extends PageObject {
 
     String NewSaleXpath = "//*[@id=\"b3-NewSaleButton\"]";
     String SelectProductXpath = "//*[@id=\"b3-BrokerProducts\"]";
-    String ClickOnContinueButtonXpath = "//*[@id=\"b3-CreateApplication2\"]/div[3]/div[2]/button";
+    String ClickOnContinueButtonXpath = "//button[@class=\"btn  btn-primary OSFillParent\"]";
 
     // Business Details Elements - Mandatory Text Fields.
     String CompanyNameXpath = "//*[@id=\"b42-Input_CompanyName\"]";
@@ -53,6 +53,9 @@ public class BusinessDetails extends PageObject {
     public void ClickOnContinueButton() {
         $(By.xpath(ClickOnContinueButtonXpath)).click();
     }
+
+
+
     @Step("Enter Company Name {String}")
     public void EnterCompanyName(String companyName){
         $(By.xpath(CompanyNameXpath)).sendKeys(companyName);
