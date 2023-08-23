@@ -1,17 +1,12 @@
 package stepDefinition;
 
 
-import PageObjects.LoginPage;
-import PageObjects.BusinessDetails;
-import PageObjects.UnderWriting;
-import PageObjects.ContactPerson;
+import PageObjects.*;
 import io.cucumber.java.en.Given;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
 
-import static org.apache.fontbox.afm.AFMParser.CC;
-
-public class BrokerOnline_BusinessDetails extends PageObject {
+public class BrokerOnline_CloseCorporationCC extends PageObject {
     @Steps
     LoginPage loginPage;
     @Steps
@@ -20,6 +15,8 @@ public class BrokerOnline_BusinessDetails extends PageObject {
     UnderWriting underWriting;
     @Steps
     ContactPerson contactPerson;
+    @Steps
+    MandateHolder mandateHolder;
 
     @Given("User log on to Legal Business Plan and Capture AccessCode {string} and Capture {string}, {string} Login Details")
     public void user_log_on_to_legal_business_plan_and_capture_access_code_and_capture_login_details(String AccessCode, String BrokerCode, String Password) throws InterruptedException {
@@ -76,8 +73,26 @@ public class BrokerOnline_BusinessDetails extends PageObject {
         contactPerson.EnterMobileNumber(MobileNumber);
         contactPerson.SelectJobPosition(JobPosition);
         contactPerson.ClickOnContinueButton();
-
     }
+    @Given("User completes required Mandate Holder information {string}, {string}, {string}, {string}, {string}, {string}, {string} and Click Continue Button.")
+    public void user_completes_required_mandate_holder_information_and_click_continue_button(String Title, String IdentityType, String IdentityNumber, String FirstName, String Surname, String MobileNumber, String JobPosition) {
+        mandateHolder.SelectTitle(Title);
+        mandateHolder.selectIdentityType(IdentityType);
+        mandateHolder.EnterIdentityType(IdentityNumber);
+        mandateHolder.EnterName(FirstName);
+        mandateHolder.EnterSurname(Surname);
+        mandateHolder.EnterMobileNumber(MobileNumber);
+        mandateHolder.SelectJobPosition(JobPosition);
+        String ContinueButton = new String();
+        mandateHolder.ClickContinueButton(ContinueButton);
+    }
+
+    @Given("User completes required Payer Details information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string} and Click Continue Button.")
+    public void user_completes_required_payer_details_information_and_click_continue_button(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15, String string16) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 
 }
