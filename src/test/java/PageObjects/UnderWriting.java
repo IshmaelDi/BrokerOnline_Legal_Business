@@ -9,9 +9,11 @@ public class UnderWriting extends PageObject {
 
     // UnderWriting Elements
 
+    //String LegalMattersXpath = "//*[@id=\"b44-LegalMatters\"]";
     String LegalMattersXpath = "//*[@id=\"b44-LegalMatters\"]";
     String LegalEntityXpath = "//*[@id=\"b44-IsLegalEntity\"]";
     String InvoicesXpath = "//*[@id=\"b44-Invoices\"]";
+    //String IndustryXpath = "//*[@id=\"b44-Industry\"]";
     String IndustryXpath = "//*[@id=\"b44-Industry\"]";
     String TextAreaXpath = "//*[@id=\"b44-TextArea_IndustrySpecifics\"]";
     String CheckBoxXpath = "//*[@id=\"b44-Checkbox1\"]";
@@ -20,38 +22,37 @@ public class UnderWriting extends PageObject {
 
     // UnderWriting Methods
 
-    @Step("Select Legal Matters {Sting} from drop list")
-    public void SelectLegalMatters(String value) {
-        WebElement LM = $(By.xpath(LegalMattersXpath));
-        LM.click();
-        selectFromDropdown(LM, value);
-
-    }
-
-
 //    @Step("Select Legal Matters {Sting} from drop list")
-//    public void SelectLegalMatters(String LegalMatters) {
+//    public void SelectLegalMatters(String value) {
 //        WebElement LM = $(By.xpath(LegalMattersXpath));
-//        sel
-//        selectFromDropdown(LM, LegalMatters);
+//        LM.click();
+//        selectFromDropdown(LM, value);
+//
 //    }
+
+
+    @Step("Select Legal Matters {Sting} from drop list")
+    public void SelectLegalMatters(String LegalMatters) {
+        WebElement LegalMatter = $(By.xpath(LegalMattersXpath));
+        selectFromDropdown(LegalMatter, LegalMatters);
+    }
 
     @Step("Select Legal Entity {String} from drop list")
     public void SelectLegalEntity(String LegalEntity) {
-        WebElement LE = $(By.xpath(LegalEntityXpath));
-        selectFromDropdown(LE, LegalEntity);
+        WebElement LegalEnttityy = $(By.xpath(LegalEntityXpath));
+        selectFromDropdown(LegalEnttityy, LegalEntity);
     }
 
     @Step("Select Invoices {String} from drop list")
     public void SelectInvoices(String Invoices) {
-        WebElement I = $(By.xpath(InvoicesXpath));
-        selectFromDropdown(I, Invoices);
+        WebElement Invoice = $(By.xpath(InvoicesXpath));
+        selectFromDropdown(Invoice, Invoices);
     }
 
     @Step("Select Industry {String} from drop list")
     public void SelectIndustry(String Industry) {
-        WebElement IN = $(By.xpath(IndustryXpath));
-        selectFromDropdown(IN, Industry);
+        WebElement Industry1 = $(By.xpath(IndustryXpath));
+        selectFromDropdown(Industry1, Industry);
     }
 
     @Step("Enter Industry Specific {String}")

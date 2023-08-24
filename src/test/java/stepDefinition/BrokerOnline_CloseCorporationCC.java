@@ -3,8 +3,8 @@ package stepDefinition;
 
 import PageObjects.*;
 import io.cucumber.java.en.Given;
-import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.pages.PageObject;
 
 public class BrokerOnline_CloseCorporationCC extends PageObject {
     @Steps
@@ -17,6 +17,8 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
     ContactPerson contactPerson;
     @Steps
     MandateHolder mandateHolder;
+    @Steps
+    PayerDetails payerDetails;
 
     @Given("User log on to Legal Business Plan and Capture AccessCode {string} and Capture {string}, {string} Login Details")
     public void user_log_on_to_legal_business_plan_and_capture_access_code_and_capture_login_details(String AccessCode, String BrokerCode, String Password) throws InterruptedException {
@@ -30,7 +32,7 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
     }
     @Given("User click on New Sale Button and Select the Product {string} and click Continue Button")
     public void user_click_on_new_sale_button_and_select_the_product_and_click_continue_button(String Product) throws InterruptedException {
-        Thread.sleep(3000);
+
         businessDetails.ClickNewSaleButton();
         businessDetails.SelectProduct(Product);
         businessDetails.ClickOnContinueButton();
@@ -52,10 +54,13 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
         businessDetails.PostalAddressLine1(PostalAddressLine1);
         businessDetails.PostalAddressLine2(PostalAddressLine2);
         businessDetails.PostalAddressCode(PostalAddressCode);
+
         businessDetails.BusinessDetailsContinueButton();
+
     }
     @Given("User Select legal Matters {string}, {string}, {string}, {string}, {string} and click Continue Button.")
-    public void user_select_legal_matters_and_click_continue_button(String LegalMatters, String LegalEntity, String Invoices, String Industry, String IndustrySpecifics) {
+    public void user_select_legal_matters_and_click_continue_button(String LegalMatters, String LegalEntity, String Invoices, String Industry, String IndustrySpecifics) throws InterruptedException {
+        Thread.sleep(3000);
         underWriting.SelectLegalMatters(LegalMatters);
         underWriting.SelectLegalEntity(LegalEntity);
         underWriting.SelectInvoices(Invoices);
@@ -89,8 +94,7 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
 
     @Given("User completes required Payer Details information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string} and Click Continue Button.")
     public void user_completes_required_payer_details_information_and_click_continue_button(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15, String string16) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
 
