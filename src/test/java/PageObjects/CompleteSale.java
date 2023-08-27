@@ -12,50 +12,48 @@ public class CompleteSale extends PageObject {
     String ClienteSigniture="//*[@id=\"b51-ClientSignature\"]/div[2]/button/i";
     String FinshLaterButton = "//*[@id=\"b51-Buttons\"]/div[1]/button";
     String AcceptAndComplete= "//*[@id=\"b51-Buttons\"]/div[2]/button";
-    String   Premium ="//*[@id=\"b51-PremiumDetails\"]/div[2]/div/div[1]/div[2]/span";
+    String Premium ="//*[@id=\"b51-PremiumDetails\"]/div[2]/div/div[1]/div[2]/span";
     String SumAssured ="//*[@id=\"b51-PremiumDetails\"]/div[2]/div/div[3]/span";
-    String     DownloadTermsAndconditions ="//*[@id=\"b51-b18-Content\"]/div[2]/a/span";
+    String DownloadTermsAndconditions ="//*[@id=\"b51-b18-Content\"]/div[2]/a/span";
     String CompanyName ="//*[@id=\"b51-BusinessDetails\"]/div[2]/div[1]/div[2]/span";
-    String Numberofemplyees ="//*[@id=\"b51-BusinessDetails\"]/div[2]/div[2]/div[2]/span";
+    String NumberOfEmployees ="//*[@id=\"b51-BusinessDetails\"]/div[2]/div[2]/div[2]/span";
     String AnualTurnOver ="//*[@id=\"b51-BusinessDetails\"]/div[2]/div[2]/div[2]/span";
 
-    String TypeSigniture ="//*[@id=\"b51-b19-SignatureCanvas\"]/canvas";
-    String SignituredonButton ="//*[@id=\"b51-b19-CtrlButtons\"]/div[2]/a/span";
+    String TypeSignature ="//*[@id=\"b51-b19-SignatureCanvas\"]/canvas";
+    String SignatureOnButton ="//*[@id=\"b51-b19-CtrlButtons\"]/div[2]/a/span";
 
-    // Functions for complte sale
-    @Step(" Check Total initial premium amount")
+    // Functions for complete sale
+    @Step(" Check/View Total initial premium amount")
     public void premiumAmount() {
 
-        String totalpremium = $(By.xpath(Totalpremium)).getText();
-        System.out.println("Total premium is:" + totalpremium);
+        String totalPremium = $(By.xpath(Totalpremium)).getText();
+        System.out.println("Total premium is:" + totalPremium);
 
     }
     @Step(" View Sum assured")
     public void ViewSumAssured() {
 
         String sumAssured = $(By.xpath(SumAssured)).getText();
-        System.out.println("Sum Assured  is:" + sumAssured);
-
+        System.out.println("Sum Assured  is: " + sumAssured);
     }
     @Step(" View company name")
     public void ViewCompanyName() {
 
         String CName = $(By.xpath(SumAssured)).getText();
-        System.out.println("Company Name is displayed correctly:" + CName);
+        System.out.println("Company Name is displayed correctly: " + CName);
 
     }
     @Step(" verify tha number of employee is correct")
-    public void ViewNumberofEmplyees() {
+    public void ViewNumberOfEmployees() {
 
         String NoOfEmployees = $(By.xpath(SumAssured)).getText();
         System.out.println("Number of employees is:" + NoOfEmployees);
 
     }
-    @Step(" Vew anual Turn Over")
+    @Step(" Vew Annual Turn Over")
     public void ViewAnnualTurnOver() {
-
         String AnnUalTunOver = $(By.xpath(SumAssured)).getText();
-        System.out.println("Annual turn Over  is:" + AnnUalTunOver);
+        System.out.println("Annual turn Over  is: " + AnnUalTunOver);
 
     }
     @Step("Save captured beneficiary details")
@@ -63,7 +61,7 @@ public class CompleteSale extends PageObject {
         $(By.xpath(Termscoditions)).click();
 
     }
-    @Step("Clic accept and complte button")
+    @Step("Click accept and complete button")
     public void ClickAcceptAndCompleteButton() {
         $(By.xpath(AcceptAndComplete)).click();
 

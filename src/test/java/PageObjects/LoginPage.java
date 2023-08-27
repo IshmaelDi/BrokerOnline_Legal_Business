@@ -7,6 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class LoginPage extends PageObject {
@@ -29,13 +33,14 @@ public class LoginPage extends PageObject {
         getDriver().get(OpenWebsite);
     }
 
-
+    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
     // Methods Implementations
     @Step("Enter Access Code")
     public void enterAccessCode(String AccessCode ) throws InterruptedException {
-        Thread.sleep(3000);
+
         getDriver().switchTo().defaultContent();
-        $(By.xpath(accessCodeXpath)).sendKeys(AccessCode);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(accessCodeXpath))).sendKeys(AccessCode);
         $(By.xpath(confirmButtonXpath)).click();
     }
     @Step("Enter broker Code and Password")

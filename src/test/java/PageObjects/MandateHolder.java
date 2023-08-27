@@ -16,25 +16,19 @@ public class MandateHolder extends PageObject {
     String HMobileNumberXpath = "//*[@id=\"b48-Input_MobileTelephoneNumber\"]";
     String HJobPositionXpath = "//*[@id=\"b48-Input_JobPosition\"]";
     String MandateContinueButtonXpath = "//*[@id=\"b48-MandateHolderForm\"]/div[8]/div/button";
-    String HCheckBox = "//*[@id=\"b48-Checkbox1\"]";
-
-
 
 
     //Mandate Holder Methods
 
-    @Step("Click on CheckBox")
-    public void ClickOnCheckBox(){
-        WebElement chechbox = $(By.xpath(ContactPersonCheckBoxXpath));
-    }
-
     @Step("Select Title {String}")
     public void SelectTitle(String Title){
         WebElement t = $(By.xpath(TitleXpath));
+        selectFromDropdown(t, Title);
     }
     @Step("Select IdentityType")
     public void selectIdentityType(String IdentityType){
         WebElement STI = $(By.xpath(IdTypeXpath));
+        selectFromDropdown(STI, IdentityType);
 
     }
     @Step("Enter Identity Number {String}")
@@ -64,7 +58,7 @@ public class MandateHolder extends PageObject {
     }
 
     @Step("Click Continue Button")
-    public void ClickContinueButton(String ContinueButton){
+    public void ClickContinueButton(){
         $(By.xpath(MandateContinueButtonXpath)).click();
     }
 

@@ -9,11 +9,9 @@ public class UnderWriting extends PageObject {
 
     // UnderWriting Elements
 
-    //String LegalMattersXpath = "//*[@id=\"b44-LegalMatters\"]";
     String LegalMattersXpath = "//*[@id=\"b44-LegalMatters\"]";
     String LegalEntityXpath = "//*[@id=\"b44-IsLegalEntity\"]";
     String InvoicesXpath = "//*[@id=\"b44-Invoices\"]";
-    //String IndustryXpath = "//*[@id=\"b44-Industry\"]";
     String IndustryXpath = "//*[@id=\"b44-Industry\"]";
     String TextAreaXpath = "//*[@id=\"b44-TextArea_IndustrySpecifics\"]";
     String CheckBoxXpath = "//*[@id=\"b44-Checkbox1\"]";
