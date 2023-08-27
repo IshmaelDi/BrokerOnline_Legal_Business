@@ -1,6 +1,7 @@
 package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 import org.apache.xmpbox.type.GUIDType;
 import org.openqa.selenium.By;
@@ -26,6 +27,7 @@ public class ContactPerson extends PageObject {
     @Step("Select Title {String}")
     public void SelectTitle(String Title){
         WebElement t = $(By.xpath(TitleXpath));
+        Click.on();
         selectFromDropdown(t, Title);
     }
     @Step("Select Identity Type")

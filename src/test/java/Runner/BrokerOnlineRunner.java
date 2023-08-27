@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"json:target/cucumber.json" },
         features = "src/test/resources/features/BrokerOnline_Legal_Business.feature",
         glue = "stepDefinition",
-        dryRun = true,
+        dryRun = false,
         tags = "@Test2" )
 
 public class BrokerOnlineRunner {

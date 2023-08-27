@@ -12,8 +12,8 @@ Feature: Broker Online - Legal Business Plan Capturing Process.
 
 
     Examples:
-      |AccessCode|code|Password|ClienteleLegalBusinessPlan|BusinessType|CompanyName|RegistrationNumber|NumberOfEmployees|MobileNumber|WorkNumber|AnnualTurnover|PhysicalAddressLine1|PhysicalAddressLine2|PostalAddressCode|PostalAddressLine1|PostalAddressLine2|PostalAddressCode|LegalMatters|LegalEntity|Invoices|Industry|IndustrySpecifics|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|JobPosition|JobPosition|CompanyName|RegistrationNumber|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|WorkNumber|BankName|BankAccountType|BankAccountNumber|POSVerified|DebitDate|TotalPremium|ViewSumAssured|NumberOfEmployees|AnnualTurnOver|
-      |0132|b1234|12345|Clientèle Legal Business Plan|Limited Corporation (Ltd)|Mallas CC|2013/102047/06|99|0722680991|0127473011|Less than 2,000,000|Block 1|Blo2|2007|Bloq W|Bloj H|0174|0|No|Yes|Taxi Industry|TesHome Loans ting|Hon|ID Number|9508245982866|Thabo|Sibani|0728710012|Member|Member  |Kool Runs   |2013/102047/06   |Hon  |ID Number   |9508246891272                                                                                                                                  |Roben    |Mlaza|07614066541 |0117972520|NEDBANK LIMITED|Savings Account|1234        |NO          |25      |R 1 469.00  |R 290 000.00|24                 |Less than 2,000,000|
+      |AccessCode|code|Password|ClienteleLegalBusinessPlan|BusinessType|CompanyName|RegistrationNumber|NumberOfEmployees|MobileNumber|WorkNumber|AnnualTurnover|PhysicalAddressLine1|PhysicalAddressLine2|PostalAddressCode|PostalAddressLine1|PostalAddressLine2|PostalAddressCode|LegalMatters|LegalEntity|Invoices|Industry|IndustrySpecifics|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|JobPosition|CompanyName|RegistrationNumber|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|WorkNumber|BankName|BankAccountType|BankAccountNumber|POSVerified|DebitDate|TotalPremium|ViewSumAssured|NumberOfEmployees|AnnualTurnOver|
+      |0132|b1234|12345|Clientèle Legal Business Plan|Limited Corporation (Ltd)|Mallas CC|2013/102047/06|99|0722680991|0127473011|Less than 2,000,000|Block 1|Blo2|2007|Bloq W|Bloj H|0174                                                                                      |0 |No |No|Administrative & Support Services|TesHome Loans ting|Hon|ID Number       |9508245982866|Thabo    |Sibani |0722680991   |Member     |Kool Runs   |2013/102047/06   |Hon  |ID Number   |9508246891272                                                                                                                                  |Roben    |Mlaza|07614066541 |0117972520|NEDBANK LIMITED|Savings Account|1234        |NO          |25      |R 1 469.00  |R 290 000.00|24                 |Less than 2,000,000|
 
 #
 ##  @Test3
@@ -21,7 +21,7 @@ Feature: Broker Online - Legal Business Plan Capturing Process.
 ##  Scenario Outline: User is on Underwriting tab
 #      Given User Select legal Matters '<LegalMatters>', '<LegalEntity>', '<Invoices>', '<Industry>', '<IndustrySpecifics>' and click Continue Button.
 #
-#      Examples:
+#      Examples:+
 #        |LegalMatters|LegalEntity|Invoices|Industry   |IndustrySpecifics|
 #        |3           |NO        |Yes      |EstateAgent|IndustrySpecifics|
 #
