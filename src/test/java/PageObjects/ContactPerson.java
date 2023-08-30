@@ -1,7 +1,6 @@
 package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 import org.apache.xmpbox.type.GUIDType;
 import org.openqa.selenium.By;
@@ -13,10 +12,12 @@ public class ContactPerson extends PageObject {
 
     String TitleXpath = "//*[@id=\"b46-Input_Title\"]";
     String IdentityTypeXpath = "//*[@id=\"b46-Dropdown_IdentityType\"]";
-    String IdentityNumberXpath = "//*[@id=\"b46-Input_IdentityNumber\"]";
+    String IdentityNumberXpath = "//input[@tabindex=\"3\"]";
+    String PassportNumberXpath = "//input[@tabindex=\"3\"]";
+    String ContactPersonDOBXpath = "//*[@id=\"b46-Input_DateOfBirth\"]";
     String NameXpath = "//*[@id=\"b46-Input_FirstNames\"]";
     String SurnameXpath = "//*[@id=\"b46-Input_Surname\"]";
-    String MobileNumberXpath = "//*[@id=\"b46-Input_Surname\"]";
+    String MobileNumberXpath = "//*[@id=\"b46-Input_MobileTelephoneNumber\"]";
     String JobPositionXpath = "//*[@id=\"b46-Input_JobPosition\"]";
     String PrimaryContactXpath = "//*[@id=\"b46-Input_IsPrimaryContact\"]";
     String ContinueButtonXpath = "//*[@id=\"b46-ContactPersonForm\"]/div[8]/button";
@@ -27,7 +28,6 @@ public class ContactPerson extends PageObject {
     @Step("Select Title {String}")
     public void SelectTitle(String Title){
         WebElement t = $(By.xpath(TitleXpath));
-        Click.on();
         selectFromDropdown(t, Title);
     }
     @Step("Select Identity Type")
@@ -35,10 +35,19 @@ public class ContactPerson extends PageObject {
         WebElement it = $(By.xpath(IdentityTypeXpath));
         selectFromDropdown(it, IdentityType);
     }
-    @Step("Enter Identity Number {String}")
-    public void EnterIdentityType(String IdentityType){
-        $(By.xpath(IdentityNumberXpath)).sendKeys(IdentityType);
+    @Step("Enter IdentityNumber {String}")
+    public void EnterIdentityNumber(String IdentityNumber){
+        $(By.xpath(IdentityNumberXpath)).sendKeys(IdentityNumber );
+    }
 
+        // Passport Number = AE402843
+    @Step("Enter Passport Number")
+    public void EnterPassportNumber(String PassportNumber){
+        $(By.xpath(PassportNumberXpath)).sendKeys(PassportNumber);
+    }
+    @Step("Enter DOB")
+    public void EnterDOB(String DOB){
+        $(By.xpath(ContactPersonDOBXpath)).sendKeys(DOB);
     }
     @Step("Enter Name {String}")
     public void EnterName(String Name){
@@ -79,7 +88,6 @@ public class ContactPerson extends PageObject {
         }
 
     }
-
     @Step("Click on Continue Button")
     public void ClickOnContinueButton(){
         $(By.xpath(ContinueButtonXpath)).click();

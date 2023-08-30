@@ -21,7 +21,9 @@ public class BusinessDetails extends PageObject {
     // Business Details Elements - Mandatory Text Fields.
     String CompanyNameXpath = "//*[@id=\"b42-Input_CompanyName\"]";
     String BusinessTypeXpath = "//*[@id=\"b42-Dropdown_EntityType\"]";
+    String IsPassportCheckBoxXpath = "//input[@tabindex=\"4\"]";
     String RegistrationNumberXpath = "//*[@id=\"b42-Input_RegistrationNumber\"]";
+    String IDPassport = "//input[@tabindex=\"3\"]";
     String NumberOfEmployeesXpath = "//*[@id=\"b42-Input_NumberOfEmployees\"]";
     String WORKNumberXpath ="//*[@id=\"b42-Input_WorkTelephoneNumber\"]";
     String MobileNumberXpath = "//*[@id=\"b42-Input_MobileTelephoneNumber\"]";
@@ -29,12 +31,13 @@ public class BusinessDetails extends PageObject {
     String PhysicalAddressLine1Xpath = "//*[@id=\"b42-Input_ResidentialAddressLine1\"]";
     String PhysicalAddressLine2Xpath = "//*[@id=\"b42-Input_ResidentialAddressLine2\"]";
     String PhysicalAddressCodeXpath = "//*[@id=\"b42-Input_ResidentialAddressCode\"]";
+    String AddressSameASxpath ="//*[@id=\"b42-AddressCopy\"]";
     String PostalAddressAddressLine1Xpath = "//*[@id=\"b42-Input_PostalAddressLine1\"]";
     String PostalAddressAddressLine2Xpath = "//*[@id=\"b42-Input_PostalAddressLine2\"]";
     String PostalAddressCodeXpath = "//*[@id=\"b42-Input_PostalAddressCode\"]";
     String FinishLaterCHECKBOXXpath = "//*[@id=\"b42-AddressCopy\"]";
     String ContinueButtonXpath = "//*[@id=\"b42-BusinessDetailsForm\"]/div[12]/div/button";
-    private String enter;
+
 
 
     // Online Capture - New Sale
@@ -42,55 +45,85 @@ public class BusinessDetails extends PageObject {
     // Methods Implementations
     // Login Page
     @Step("Click New Sale Button")
-    public void ClickNewSaleButton(){
+    public void ClickNewSaleButton() throws InterruptedException {
+
         $(By.xpath(NewSaleXpath)).click();
+        Thread.sleep(3000);
     }
     @Step("select Product {String} from drop list")
-    public void SelectProduct(String SelectProductFromDropList) {
+    public void SelectProduct(String SelectProductFromDropList) throws InterruptedException {
         WebElement C = $(By.xpath(SelectProductXpath));
         selectFromDropdown(C, SelectProductFromDropList);
+        Thread.sleep(3000);
     }
     @Step("Click on Continue Button")
-    public void ClickOnContinueButton() {
+    public void ClickOnContinueButton() throws InterruptedException {
         $(By.xpath(ClickOnContinueButtonXpath)).click();
+        Thread.sleep(3000);
     }
 
 
 
     @Step("Enter Company Name {String}")
-    public void EnterCompanyName(String companyName){
+    public void EnterCompanyName(String companyName) throws InterruptedException {
         $(By.xpath(CompanyNameXpath)).sendKeys(companyName);
+        Thread.sleep(3000);
 
     }
-
 
     //Business Details Methods
     @Step("select Business Type")
-    public void SelectBusinessType(String SelectBusinessType) {
+    public void SelectBusinessType(String SelectBusinessType) throws InterruptedException {
         WebElement Cl = $(By.xpath(BusinessTypeXpath));
         selectFromDropdown(Cl, SelectBusinessType);
+        Thread.sleep(3000);
     }
-    @Step("Capture Registration Number") // 2013/010108/23
-    public void RegistrationNumber(String RegistrationNumber){
 
-       $(By.xpath(RegistrationNumberXpath)).sendKeys(RegistrationNumber);
+    @Step("Click On Is Passport CheckBox")
+    public void IsPassportNumber(){
+
+        // Validate Checkbox using isDisplayed() and click
+
+        WebElement checkBoxElement = getDriver().findElement(By.xpath(IsPassportCheckBoxXpath));
+        boolean isDisplayed = checkBoxElement.isDisplayed();
+
+        // Performing click operation if element is displayed
+        if (isDisplayed) {
+            checkBoxElement.click();
+        }
+
     }
+
+
+//    @Step("Capture Registration Number")
+//    public void RegistrationNumber(String RegistrationNumber) throws InterruptedException {
+//        $(By.xpath(RegistrationNumberXpath)).sendKeys(RegistrationNumber);
+//        Thread.sleep(3000);
+//    }
+    @Step("Capture Passport Number")
+    public void PassportNumber(String PassportNumber) {
+        $(By.xpath(IDPassport)).sendKeys(PassportNumber);
+    }
+
+
     @Step("Capture Numnber of Employees")
-    public void NUMBEROFEMPLOYEES(String NUMBEROFEMPLOYEES){
+    public void NUMBEROFEMPLOYEES(String NUMBEROFEMPLOYEES) throws InterruptedException {
         $(By.xpath(NumberOfEmployeesXpath)).sendKeys(NUMBEROFEMPLOYEES);
+        Thread.sleep(3000);
     }
     @Step("capture WORK NUMBER")
-    public void WORKNUMBER(String WORKNUMBER) {
+    public void WORKNUMBER(String WORKNUMBER) throws InterruptedException {
         $(By.xpath(WORKNumberXpath)).sendKeys(WORKNUMBER);
+        Thread.sleep(3000);
     }
     @Step("capture MOBILE NUMBER")
-    public void MOBILENUMBER(String MOBILENUMBER){
+    public void MOBILENUMBER(String MOBILENUMBER) throws InterruptedException {
         $(By.xpath(MobileNumberXpath)).sendKeys(MOBILENUMBER);
+        Thread.sleep(3000);
     }
     @Step("Select Annual Turn Over")
     public void AnnualTurnOver(String AnnualTurnOver){
         WebElement ATO = $(By.xpath(AnnualTurnOverXpath));
-
         selectFromDropdown(ATO, AnnualTurnOver);
     }
     @Step("Capture Physical Address Line 1")
@@ -105,6 +138,11 @@ public class BusinessDetails extends PageObject {
     public void PhysicalAddressCode(String physicalAddressCode) {
         $(By.xpath(PhysicalAddressCodeXpath)).sendKeys(physicalAddressCode);
     }
+    @Step("Check Address same as phisical address")
+    public void AddressSameAsPhisicalAddress() {
+        $(By.xpath(AddressSameASxpath)).click();
+    }
+
     @Step("Capture Postal Address Code")
     public void PostalAddressCode(String postalAddressCode){
         $(By.xpath(PostalAddressCodeXpath)).sendKeys(postalAddressCode);
@@ -133,4 +171,3 @@ public class BusinessDetails extends PageObject {
     public void CompanyName(String companyName) {
     }
 }
-

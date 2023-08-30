@@ -2,6 +2,7 @@ package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+import org.junit.Rule;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -26,42 +27,36 @@ public class LoginPage extends PageObject {
     String passwordXpath = "//*[@id=\"Input_PasswordVal\"]";
     String loginXpath = "//*[@id=\"LoginForm\"]/div[3]/button/div";
 
-//    String OpenWebsite = "https://cbc-uat.clientele.co.za/BrokerOnline/Login";
+    String OpenWebsite = "https://cbc-uat.clientele.co.za/BrokerOnline/Login";
+
+    //WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
 
 
-//    public void OpenWeb(){
-//        getDriver().get(OpenWebsite);
-//    }
+    public void OpenWeb() throws InterruptedException {
 
-//    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
-////wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
-    // Methods Implementations
-    @Step("Enter Access Code")
-    public void enterAccessCode(String AccessCode ) throws InterruptedException {
+        getDriver().get(OpenWebsite);
         Thread.sleep(3000);
-        getDriver().switchTo().defaultContent();
+    }
+
+    // Methods Implementations
+
+    public void enterAccessCode(String AccessCode) throws InterruptedException {
         $(By.xpath(accessCodeXpath)).sendKeys(AccessCode);
+//        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(accessCodeXpath))).click();
+//        String ConfirmBtn;
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(accessCodeXpath))).sendKeys(AccessCode);
         $(By.xpath(confirmButtonXpath)).click();
     }
-
-
-//        getDriver().switchTo().defaultContent();
-//        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(accessCodeXpath))).sendKeys(AccessCode);
-//        $(By.xpath(confirmButtonXpath)).click();
-//    }
-    @Step("Enter broker Code and Password")
     public void enterBrokerCodeAndPassword(String a,  String b) throws InterruptedException {
-        Thread.sleep(3000);
-        getDriver().switchTo().defaultContent();
         $(By.xpath(brokerCodeXpath)).sendKeys(a);
-        $(By.xpath(passwordXpath)).sendKeys(b);
         Thread.sleep(3000);
+        $(By.xpath(passwordXpath)).sendKeys(b);
     }
-    @Step("Click On Login Button")
     public void clickOnLoginButton() throws InterruptedException {
         $(By.xpath(loginXpath)).click();
         Thread.sleep(3000);
-
 
     }
 
