@@ -9,9 +9,7 @@ import io.cucumber.java.en.Given;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
 
-import static org.apache.fontbox.afm.AFMParser.CC;
-
-public class BrokerOnline_BusinessDetails extends PageObject {
+public class BrokerOnline_CloseCorporationCC extends PageObject {
     @Steps
     LoginPage loginPage;
     @Steps
