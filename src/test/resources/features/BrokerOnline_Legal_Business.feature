@@ -8,10 +8,12 @@ Feature: Broker Online - Legal Business Plan Capturing Process.
     And User Select Title and completes required Contact Person information '<Title>', '<IdentityType>', '<IdentityNumber>', '<FirstName>', '<Surname>', '<MobileNumber>', '<JobPosition>' and Click Continue Button.
     And User completes required Mandate Holder information '<Title>', '<IdentityType>', '<IdentityNumber>', '<FirstName>', '<Surname>', '<MobileNumber>', '<JobPosition>' and Click Continue Button.
     And User completes required Payer Details information '<Job Position>', '<CompanyName>', '<RegistrationNumber>', '<Title>', '<IdentityType>', '<IdentityNumber>', '<FirstName>', '<Surname>', '<MobileNumber>', '<WorkNumber>', '<BankName>', '<BankAccountType>', '<BankAccountNumber>', '<POSVerified>', '<DebitDate>', '<IsSouthAfricanCitizen>' and Click Continue Button.
+    Then User should get generated Sale Confirmation with Total Premium '<TotalPremium>', '<ViewSumAssured>', '<NumberOfEmployees>', '<AnnualTurnOver>' and Click on T'c & C's, client signature and Click on Accept & Complete Sale Button.
+
 
     Examples:
-      |AccessCode|code|Password|ClienteleLegalBusinessPlan|BusinessType|CompanyName|RegistrationNumber|NumberOfEmployees|MobileNumber|WorkNumber|AnnualTurnover|PhysicalAddressLine1|PhysicalAddressLine2|PostalAddressCode|PostalAddressLine1|PostalAddressLine2|PostalAddressCode|LegalMatters|LegalEntity|Invoices|Industry   |IndustrySpecifics|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|JobPosition|JobPosition|CompanyName|RegistrationNumber|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|WorkNumber|BankName|BankAccountType|BankAccountNumber|POSVerified|DebitDate|
-      |0132|b1234|12345|Clientèle Legal Business Plan|Close Corporation (CC)|Khabela|2013/417420/23|50|0728412953|0127971922|2,000,001 – 10,000,000|Block M|Block A|0152|Block W|Block H|0162|2|Yes|No|Estate Agent|IndustrySpecifics|Mr|ID Number|8705076328083|Ishmael|Direro|0728712953|CEO                                                                                                                              |Secritary  |IT Turns   |2013/010108/23    |Mrs  |ID Number   |9408236664278 |Robby    |Makala |07614066576 |0127972593|ABSA BANK|Cheque Account|1234             |Yes        |25       |
+      |AccessCode|code|Password|ClienteleLegalBusinessPlan|BusinessType|CompanyName|RegistrationNumber|NumberOfEmployees|MobileNumber|WorkNumber|AnnualTurnover|PhysicalAddressLine1|PhysicalAddressLine2|PostalAddressCode|PostalAddressLine1|PostalAddressLine2|PostalAddressCode|LegalMatters|LegalEntity|Invoices|Industry|IndustrySpecifics|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|JobPosition|CompanyName|RegistrationNumber|Title|IdentityType|IdentityNumber|FirstName|Surname|MobileNumber|WorkNumber|BankName|BankAccountType|BankAccountNumber|POSVerified|DebitDate|TotalPremium|ViewSumAssured|NumberOfEmployees|AnnualTurnOver|
+      |0132|b1234|12345|Clientèle Legal Business Plan|Limited Corporation (Ltd)|Mallas CC|2013/102047/06|99|0722680991|0127473011|Less than 2,000,000|Block 1|Blo2|2007|Bloq W|Bloj H|0174                                                                                      |0 |No |No|Administrative & Support Services|TesHome Loans ting|Hon|ID Number       |9508245982866|Thabo    |Sibani |0722680991   |Member     |Kool Runs   |2013/102047/06   |Hon  |ID Number   |9508246891272                                                                                                                                  |Roben    |Mlaza|07614066541 |0117972520|NEDBANK LIMITED|Savings Account|1234        |NO          |25      |R 1 469.00  |R 290 000.00|24                 |Less than 2,000,000|
 
 #
 ##  @Test3
@@ -19,9 +21,9 @@ Feature: Broker Online - Legal Business Plan Capturing Process.
 ##  Scenario Outline: User is on Underwriting tab
 #      Given User Select legal Matters '<LegalMatters>', '<LegalEntity>', '<Invoices>', '<Industry>', '<IndustrySpecifics>' and click Continue Button.
 #
-#      Examples:
+#      Examples:+
 #        |LegalMatters|LegalEntity|Invoices|Industry   |IndustrySpecifics|
-#        |2           |Yes        |No      |EstateAgent|IndustrySpecifics|
+#        |3           |NO        |Yes      |EstateAgent|IndustrySpecifics|
 #
 #  @Test4
 #  Scenario Outline: User is on Contact Person Tab

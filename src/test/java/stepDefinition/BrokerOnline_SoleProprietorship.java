@@ -7,7 +7,8 @@ import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
 
-public class BrokerOnline_CloseCorporationCC extends PageObject {
+public class BrokerOnline_SoleProprietorship extends PageObject{
+
     @Steps
     LoginPage loginPage;
     @Steps
@@ -135,12 +136,4 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
 
 
 
-
-
 }
-
-
-
-
-
-
