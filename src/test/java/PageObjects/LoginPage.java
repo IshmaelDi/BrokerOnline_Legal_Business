@@ -31,16 +31,14 @@ public class LoginPage extends PageObject {
 
     //WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
 //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
-
-
     public void OpenWeb() throws InterruptedException {
 
         getDriver().get(OpenWebsite);
-        Thread.sleep(3000);
+        Thread.sleep(200);
     }
 
-    // Methods Implementations
 
+    // Methods Implementations
     public void enterAccessCode(String AccessCode) throws InterruptedException {
         $(By.xpath(accessCodeXpath)).sendKeys(AccessCode);
 //        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));

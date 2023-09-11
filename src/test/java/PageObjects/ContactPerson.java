@@ -36,8 +36,8 @@ public class ContactPerson extends PageObject {
         selectFromDropdown(it, IdentityType);
     }
     @Step("Enter IdentityNumber {String}")
-    public void EnterIdentityNumber(String IdentityNumber){
-        $(By.xpath(IdentityNumberXpath)).sendKeys(IdentityNumber );
+    public void EnterIdentityNumber(String EnterIdentityNumber){
+        $(By.xpath(IdentityNumberXpath)).sendKeys(EnterIdentityNumber );
     }
 
         // Passport Number = AE402843

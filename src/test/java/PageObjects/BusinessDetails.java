@@ -95,11 +95,11 @@ public class BusinessDetails extends PageObject {
     }
 
 
-//    @Step("Capture Registration Number")
-//    public void RegistrationNumber(String RegistrationNumber) throws InterruptedException {
-//        $(By.xpath(RegistrationNumberXpath)).sendKeys(RegistrationNumber);
-//        Thread.sleep(3000);
-//    }
+    @Step("Capture Registration Number")
+    public void RegistrationNumber(String RegistrationNumber) throws InterruptedException {
+        $(By.xpath(RegistrationNumberXpath)).sendKeys(RegistrationNumber);
+        Thread.sleep(3000);
+    }
     @Step("Capture Passport Number")
     public void PassportNumber(String PassportNumber) {
         $(By.xpath(IDPassport)).sendKeys(PassportNumber);
