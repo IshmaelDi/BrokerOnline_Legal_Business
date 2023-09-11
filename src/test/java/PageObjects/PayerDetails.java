@@ -15,11 +15,13 @@ public class PayerDetails extends PageObject {
 
     String RegisteredBusinessCheckboxXpath = "//*[@id=\"b50-SameAsRegBusiness\"]";
     String JobPositionXpath = "//*[@id=\"b50-Dropdown_JobPosition\"]";
-    String CompanyNameXpath = "//*[@id=\"b50-NSandN4Payer\"]/div[3]/div/div[1]/span";
-    String RegistrationNumberXpath = "//*[@id=\"b50-NSandN4Payer\"]/div[3]/div/div[2]/span";
+    //String CompanyNameXpath = "//*[@id=\"b50-NSandN4Payer\"]/div[3]/div/div[1]/span";
+    String CompanyNameXpath = "//*[@id=\"b50-Input_CompanyName\"]";
+    String RegistrationNumberXpath = "//*[@id=\"b50-Input_RegistrationNumber\"]";
     String TitleXpath = "//*[@id=\"b50-Dropdown_Title\"]";
     String IdentityTypeXpath = "//*[@id=\"b50-Dropdown_IdentityType\"]";
-    String IdentityNumberXpath = "//*[@id=\"b50-Input_IdentityNumber\"]";
+    String IdentityNumberXpath = "//input[@tabindex=\"6\"]";
+    String PassportNumberXpath = "//input[@tabindex=\"6\"]";
     String PnameXpath = "//*[@id=\"b50-Input_FirstNames\"]";
     String PSurnameXpath = "//*[@id=\"b50-Input_Surname\"]";
     String PMobileNumberXpath = "//*[@id=\"b50-Input_MobileTelephoneNumber\"]";
@@ -36,62 +38,85 @@ public class PayerDetails extends PageObject {
     String ContinueBtnXpath = "//*[@id=\"b50-PayerForm\"]/div[2]/div/button[2]";
 
 
-    @Step("click continue button")
-    public void ClickSameasregisteredbusiness() throws InterruptedException {
-        $(By.xpath(RegisteredBusinessCheckboxXpath)).click();
+    @Step("Click On Same As Registered Business")
+    public void ClickSameAsRegisteredBusiness()  {
+        WebElement checkBoxElement = getDriver().findElement(By.xpath(RegisteredBusinessCheckboxXpath));
+        boolean isDisplayed = checkBoxElement.isDisplayed();
+
+// performing click operation if element is displayed
+
+
+        if (isDisplayed) {
+            checkBoxElement.click();
+        }
+
+    }
+
+
+        //$(By.xpath(RegisteredBusinessCheckboxXpath)).click();
         //WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(RegisteredBusinessCheckboxXpath))).click();
-    }
+
     @Step("Select Job position")
-    public void selectJobPosition(String JobPosition) throws InterruptedException {
-            WebElement position = $(By.xpath(JobPositionXpath));
-            selectFromDropdown(position, JobPosition);
-        Thread.sleep(3000);
+    public void selectJobPosition(String JobPosition)  {
+        WebElement position = $(By.xpath(JobPositionXpath));
+        selectFromDropdown(position, JobPosition);
+
         }
     @Step("Enter company name")
-    public void enterCompanyName(String CompanyName) throws InterruptedException {
+    public void enterCompanyName(String CompanyName) {
         $(By.xpath(CompanyNameXpath)).sendKeys( CompanyName);
-        Thread.sleep(3000);
+
     }
     @Step("Enter registration number")
-    public void enterRegNumber(String registrationNumber) throws InterruptedException {
+    public void enterRegNumber(String registrationNumber){
         $(By.xpath(RegistrationNumberXpath)).sendKeys( registrationNumber);
-        Thread.sleep(3000);
+    }
+
+    @Step("select title")
+    public void selectTitle(String Title){
+        WebElement PTitle = $(By.xpath(TitleXpath));
+        selectFromDropdown(PTitle, Title);
+    }
+    @Step("select ID Type")
+    public void selectIDType(String IDType){
+        WebElement type = $(By.xpath(IdentityTypeXpath));
+        selectFromDropdown(type, IDType);
+    }
+    @Step("Enter Identity Number")
+    public void EnterIdentityNumber(String IdentityNumber){
+        $(By.xpath(IdentityNumberXpath)).sendKeys(IdentityNumber);
+
     }
     @Step("Enter passport number")
-    public void passportNumber(String PassportNumber) throws InterruptedException {
-        $(By.xpath(IdentityNumberXpath)).sendKeys(PassportNumber);
-        Thread.sleep(300);
+    public void passportNumber(String PassportNumber)  {
+        $(By.xpath(PassportNumberXpath)).sendKeys(PassportNumber);
 
     }
     @Step("Enter first name")
-    public void enterFirstName(String firstName) throws InterruptedException {
+    public void enterFirstName(String firstName)  {
         $(By.xpath(PnameXpath)).sendKeys(firstName);
-        Thread.sleep(3000);
+
     }
     @Step("Enter surname")
-    public void enterSurname(String surname) throws InterruptedException {
+    public void enterSurname(String surname) {
         $(By.xpath(PSurnameXpath)).sendKeys(surname);
-        Thread.sleep(3000);
+
     }
     @Step("Enter Mobile Number")
-    public void enterMobilenum(String mobileNumber) throws InterruptedException {
-
-
-        $(By.xpath(PMobileNumberXpath)).sendKeys(mobileNumber);
-        Thread.sleep(3000);
+    public void enterMobileNumber(String MobileNumber) {
+        $(By.xpath(PMobileNumberXpath)).sendKeys(MobileNumber);
     }
     @Step("Enter Home number")
-    public void enterHomeNumber(String homeNumber) throws InterruptedException {
-        $(By.xpath(HomeNumberXpath)).sendKeys(homeNumber);
-        Thread.sleep(3000);
+    public void enterHomeNumber(String HomeNumber) {
+        $(By.xpath(HomeNumberXpath)).sendKeys(HomeNumber);
+
     }
     @Step("Enter Work number")
-    public void EnterWorkNumber(String homeNumber) throws InterruptedException {
-        $(By.xpath(WorkNumberXpath)).sendKeys(homeNumber);
-        Thread.sleep(3000);
-    }
+    public void EnterWorkNumber(String WorkNumber) {
+        $(By.xpath(WorkNumberXpath)).sendKeys(WorkNumber);
 
+    }
     @Step("Enter work number ")
     public void enterWorkNumber(String workNumber) throws InterruptedException {
         $(By.xpath(PworkTelephoneNumberXpath)).sendKeys(workNumber);
@@ -109,16 +134,7 @@ public class PayerDetails extends PageObject {
         $(By.xpath(BankAccountNumberXpath)).sendKeys(AccountNumber);
 
     }
-    @Step("select title")
-    public void selectTitle(String Title){
-        WebElement PTitle = $(By.xpath(TitleXpath));
-        selectFromDropdown(PTitle, Title);
-    }
-    @Step("select ID Type")
-    public void selectIDType(String IDType){
-        WebElement type = $(By.xpath(IdentityTypeXpath));
-        selectFromDropdown(type, IDType);
-    }
+
     @Step("select bank name")
     public void selectBankName(String bankName){
         WebElement bank = $(By.xpath(BankNameXpath));

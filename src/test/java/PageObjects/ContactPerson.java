@@ -1,7 +1,6 @@
 package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 import org.apache.xmpbox.type.GUIDType;
 import org.openqa.selenium.By;
@@ -13,9 +12,9 @@ public class ContactPerson extends PageObject {
 
     String TitleXpath = "//*[@id=\"b46-Input_Title\"]";
     String IdentityTypeXpath = "//*[@id=\"b46-Dropdown_IdentityType\"]";
-    String IdentityNumberXpath = "//*[@id=\"b46-Input_IdentityNumber\"]";
-    String PassportNumber  ="//*[@id=\"b46-Input_PassportNumber\"]";
-    String CotactPersonDOB = "//*[@id=\"b46-Input_DateOfBirth\"]";
+    String IdentityNumberXpath = "//input[@tabindex=\"3\"]";
+    String PassportNumberXpath = "//input[@tabindex=\"3\"]";
+    String ContactPersonDOBXpath = "//*[@id=\"b46-Input_DateOfBirth\"]";
     String NameXpath = "//*[@id=\"b46-Input_FirstNames\"]";
     String SurnameXpath = "//*[@id=\"b46-Input_Surname\"]";
     String MobileNumberXpath = "//*[@id=\"b46-Input_MobileTelephoneNumber\"]";
@@ -27,75 +26,54 @@ public class ContactPerson extends PageObject {
     // Contact Person Methods
 
     @Step("Select Title {String}")
-    public void SelectTitle(String Title) throws InterruptedException {
+    public void SelectTitle(String Title){
         WebElement t = $(By.xpath(TitleXpath));
-        Click.on();
         selectFromDropdown(t, Title);
-        Thread.sleep(3000);
     }
-
     @Step("Select Identity Type")
-    public void SelectIdentityType(String IdentityType){
-        WebElement t = $(By.xpath(IdentityTypeXpath));
-        selectFromDropdown(t, IdentityType);
+    public void SelectIdentityType(String IdentityType) {
+        WebElement it = $(By.xpath(IdentityTypeXpath));
+        selectFromDropdown(it, IdentityType);
+    }
+    @Step("Enter IdentityNumber {String}")
+    public void EnterIdentityNumber(String EnterIdentityNumber){
+        $(By.xpath(IdentityNumberXpath)).sendKeys(EnterIdentityNumber );
     }
 
-
-    @Step("Enter Identity Number {String}")
-    public void EnterIdnumberPassport(String IdentityType) throws InterruptedException {
-        $(By.xpath(IdentityNumberXpath)).sendKeys(IdentityType);
-        Thread.sleep(3000);
-
+        // Passport Number = AE402843
+    @Step("Enter Passport Number")
+    public void EnterPassportNumber(String PassportNumber){
+        $(By.xpath(PassportNumberXpath)).sendKeys(PassportNumber);
     }
-    @Step("Enter passport {String}")
-    public void EnterPassport(String Passport) throws InterruptedException {
-        $(By.xpath(PassportNumber)).sendKeys(Passport);
-        Thread.sleep(3000);
-
-    }
-    @Step("Enter DOB {String}")
-    public void CotactPeronDOB(String ContactPeronDOB) throws InterruptedException {
-
-        $(By.xpath(CotactPersonDOB)).sendKeys(ContactPeronDOB);
-        Thread.sleep(3000);
+    @Step("Enter DOB")
+    public void EnterDOB(String DOB){
+        $(By.xpath(ContactPersonDOBXpath)).sendKeys(DOB);
     }
     @Step("Enter Name {String}")
-    public void EnterName(String Name) throws InterruptedException {
-
+    public void EnterName(String Name){
         $(By.xpath(NameXpath)).sendKeys(Name);
-        Thread.sleep(3000);
     }
-    @Step("Enter Mobile Number")
-    public void EnterMobileNumber(String MobileNumber) throws InterruptedException {
 
-        $(By.xpath(MobileNumberXpath)).sendKeys(MobileNumber);
-        Thread.sleep(3000);
-    }
     @Step("Enter Surname {String}")
-    public void EnterSurname(String Surname) throws InterruptedException {
-
+    public void EnterSurname(String Surname){
         $(By.xpath(SurnameXpath)).sendKeys(Surname);
-        Thread.sleep(3000);
     }
 
-
+    @Step("Enter Mobile Number")
+    public void EnterMobileNumber(String MobileNumber){
+        $(By.xpath(MobileNumberXpath)).sendKeys(MobileNumber);
+    }
 
     @Step("Select Job Position {String}")
-    public void SelectJobPosition(String JobPosition) throws InterruptedException {
+    public void SelectJobPosition(String JobPosition){
         WebElement J = $(By.xpath(JobPositionXpath));
         selectFromDropdown(J, JobPosition);
-        Thread.sleep(3000);
     }
 
     @Step("Select Primary Contact {String}")
-    public void SelectPrimaryContacts(String PrimaryContacts) throws InterruptedException {
-
+    public void SelectPrimaryContacts(String PrimaryContacts){
         WebElement p = $(By.xpath(PrimaryContactXpath));
-        selectFromDropdown(p, PrimaryContacts);
-        Thread.sleep(3000);
-
     }
-
     @Step("Click on Finish Later Checkbox")
     public void CheckBox(){
 
@@ -110,16 +88,9 @@ public class ContactPerson extends PageObject {
         }
 
     }
-
-
-
-
-
     @Step("Click on Continue Button")
-    public void ClickOnContinueButton() throws InterruptedException {
-
+    public void ClickOnContinueButton(){
         $(By.xpath(ContinueButtonXpath)).click();
-        Thread.sleep(4000);
     }
 
 

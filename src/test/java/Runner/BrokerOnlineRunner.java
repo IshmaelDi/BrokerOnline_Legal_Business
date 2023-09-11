@@ -1,7 +1,7 @@
 package Runner;
 
 
-import io.cucumber.junit.Cucumber;
+
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/BrokerOnline_Legal_Business.feature",
         glue = "stepDefinition",
         dryRun = false,
-        tags = "@Test2" )
+        tags = "@Test1" )
 
 public class BrokerOnlineRunner {
 }

@@ -78,7 +78,7 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
         Thread.sleep(3000);
         contactPerson.SelectTitle(Title);
         contactPerson.SelectIdentityType(IdentityType);
-        contactPerson.EnterIdentityType(IdentityNumber);
+        contactPerson.EnterIdentityNumber(IdentityNumber);
         contactPerson.EnterName(FirstName);
         contactPerson.EnterSurname(Surname);
         contactPerson.EnterMobileNumber(MobileNumber);
@@ -88,20 +88,20 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
     }
     @Given("User completes required Mandate Holder information {string}, {string}, {string}, {string}, {string}, {string}, {string} and Click Continue Button.")
     public void user_completes_required_mandate_holder_information_and_click_continue_button(String Title, String IdentityType, String IdentityNumber, String FirstName, String Surname, String MobileNumber, String JobPosition) throws InterruptedException {
-        mandateHolder.SelectTitle(Title);
-        mandateHolder.selectIdentityType(IdentityType);
-        mandateHolder.EnterIdentityType(IdentityNumber);
-        mandateHolder.EnterName(FirstName);
-        mandateHolder.EnterSurname(Surname);
-        mandateHolder.EnterMobileNumber(MobileNumber);
-        mandateHolder.SelectJobPosition(JobPosition);
+        mandateHolder.SelectMandateHolderTitle(Title);
+        mandateHolder.SelectIdentityType(IdentityType);
+        mandateHolder.IdAndPassportNumber(IdentityNumber);
+        mandateHolder.EnterMandateHolderName(FirstName);
+        mandateHolder.EnterMandateSurname(Surname);
+        mandateHolder.EnterMandateMobileNo(MobileNumber);
+        mandateHolder.Selectjobposition(JobPosition);
 
-        mandateHolder.ClickContinueButton();
+        mandateHolder.ClickOnContinueButton();
         Thread.sleep(3000);
     }
 
     @Given("User completes required Payer Details information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string} and Click Continue Button.")
-    public void user_completes_required_payer_details_information_and_click_continue_button(String JobPosition, String CompanyName, String RegNumber, String Title, String IDType, String passportNumber, String Name, String Surname, String MobileNum, String WorkNumber, String BankName, String BankType, String AccNumber, String PointOfSaleVerified, String DebitDay, String IsSACitizen) {
+    public void user_completes_required_payer_details_information_and_click_continue_button(String JobPosition, String CompanyName, String RegNumber, String Title, String IDType, String passportNumber, String Name, String Surname, String MobileNum, String WorkNumber, String BankName, String BankType, String AccNumber, String PointOfSaleVerified, String DebitDay, String IsSACitizen) throws InterruptedException {
         payerDetails.selectJobPosition(JobPosition);
         payerDetails.enterCompanyName(CompanyName);
         payerDetails.enterRegNumber(RegNumber);
@@ -110,7 +110,7 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
         payerDetails.passportNumber(passportNumber);
         payerDetails.enterFirstName(Name);
         payerDetails.enterSurname(Surname);
-        payerDetails.enterMobilenum(MobileNum);
+        payerDetails.enterMobileNumber(MobileNum);
         payerDetails.enterWorkNumber(WorkNumber);
         payerDetails.selectBankName(BankName);
         payerDetails.selectBankType(BankType);
@@ -122,13 +122,13 @@ public class BrokerOnline_CloseCorporationCC extends PageObject {
     }
 
     @Then("User should get generated Sale Confirmation with Total Premium {string}, {string}, {string}, {string} and Click on T'c & C's, client signature and Click on Accept & Complete Sale Button.")
-    public void user_should_get_generated_sale_confirmation_with_total_premium_and_click_on_t_c_c_s_client_signature_and_click_on_accept_complete_sale_button(String TotalPremium, String ViewSumAssured, String NumberOfEmployees, String AnnualTurnOver) {
-        completeSale.premiumAmount();
+    public void user_should_get_generated_sale_confirmation_with_total_premium_and_click_on_t_c_c_s_client_signature_and_click_on_accept_complete_sale_button(String premiumAmount, String ViewSumAssured, String NumberOfEmployees, String AnnualTurnOver) throws InterruptedException {
+        completeSale.MonthlyPremium(premiumAmount);
         completeSale.ViewSumAssured();
         completeSale.ViewCompanyName();
         completeSale.ViewNumberOfEmployees();
         completeSale.ViewAnnualTurnOver();
-        completeSale.ClickTermsAndConditions();
+        completeSale.ClickTermsAndConditionsCheckBox();
         completeSale.ClickAcceptAndCompleteButton();
 
     }
